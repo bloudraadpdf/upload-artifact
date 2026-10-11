@@ -1,14 +1,14 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 2605:
+/***/ 8359:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.create = void 0;
-const artifact_client_1 = __nccwpck_require__(8802);
+const artifact_client_1 = __nccwpck_require__(3076);
 /**
  * Constructs an ArtifactClient
  */
@@ -20,7 +20,7 @@ exports.create = create;
 
 /***/ }),
 
-/***/ 8802:
+/***/ 3076:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -60,13 +60,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DefaultArtifactClient = void 0;
 const core = __importStar(__nccwpck_require__(2186));
-const upload_specification_1 = __nccwpck_require__(183);
-const upload_http_client_1 = __nccwpck_require__(4354);
-const utils_1 = __nccwpck_require__(6327);
-const path_and_artifact_name_validation_1 = __nccwpck_require__(7398);
-const download_http_client_1 = __nccwpck_require__(8538);
-const download_specification_1 = __nccwpck_require__(5686);
-const config_variables_1 = __nccwpck_require__(2222);
+const upload_specification_1 = __nccwpck_require__(5121);
+const upload_http_client_1 = __nccwpck_require__(6242);
+const utils_1 = __nccwpck_require__(5773);
+const path_and_artifact_name_validation_1 = __nccwpck_require__(4508);
+const download_http_client_1 = __nccwpck_require__(7037);
+const download_specification_1 = __nccwpck_require__(8288);
+const config_variables_1 = __nccwpck_require__(1412);
 const path_1 = __nccwpck_require__(1017);
 class DefaultArtifactClient {
     /**
@@ -209,7 +209,7 @@ exports.DefaultArtifactClient = DefaultArtifactClient;
 
 /***/ }),
 
-/***/ 2222:
+/***/ 1412:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -293,7 +293,7 @@ exports.isGhes = isGhes;
 
 /***/ }),
 
-/***/ 3549:
+/***/ 8304:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -603,7 +603,7 @@ exports["default"] = CRC64;
 
 /***/ }),
 
-/***/ 8538:
+/***/ 7037:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -645,13 +645,13 @@ exports.DownloadHttpClient = void 0;
 const fs = __importStar(__nccwpck_require__(7147));
 const core = __importStar(__nccwpck_require__(2186));
 const zlib = __importStar(__nccwpck_require__(9796));
-const utils_1 = __nccwpck_require__(6327);
+const utils_1 = __nccwpck_require__(5773);
 const url_1 = __nccwpck_require__(7310);
-const status_reporter_1 = __nccwpck_require__(9081);
+const status_reporter_1 = __nccwpck_require__(547);
 const perf_hooks_1 = __nccwpck_require__(4074);
-const http_manager_1 = __nccwpck_require__(6527);
-const config_variables_1 = __nccwpck_require__(2222);
-const requestUtils_1 = __nccwpck_require__(755);
+const http_manager_1 = __nccwpck_require__(7650);
+const config_variables_1 = __nccwpck_require__(1412);
+const requestUtils_1 = __nccwpck_require__(981);
 class DownloadHttpClient {
     constructor() {
         this.downloadHttpManager = new http_manager_1.HttpManager((0, config_variables_1.getDownloadFileConcurrency)(), '@actions/artifact-download');
@@ -906,7 +906,7 @@ exports.DownloadHttpClient = DownloadHttpClient;
 
 /***/ }),
 
-/***/ 5686:
+/***/ 8288:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -991,14 +991,14 @@ exports.getDownloadSpecification = getDownloadSpecification;
 
 /***/ }),
 
-/***/ 6527:
+/***/ 7650:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.HttpManager = void 0;
-const utils_1 = __nccwpck_require__(6327);
+const utils_1 = __nccwpck_require__(5773);
 /**
  * Used for managing http clients during either upload or download
  */
@@ -1030,7 +1030,7 @@ exports.HttpManager = HttpManager;
 
 /***/ }),
 
-/***/ 7398:
+/***/ 4508:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1104,7 +1104,7 @@ exports.checkArtifactFilePath = checkArtifactFilePath;
 
 /***/ }),
 
-/***/ 755:
+/***/ 981:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1143,9 +1143,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.retryHttpClientRequest = exports.retry = void 0;
-const utils_1 = __nccwpck_require__(6327);
+const utils_1 = __nccwpck_require__(5773);
 const core = __importStar(__nccwpck_require__(2186));
-const config_variables_1 = __nccwpck_require__(2222);
+const config_variables_1 = __nccwpck_require__(1412);
 function retry(name, operation, customErrorMessages, maxAttempts) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = undefined;
@@ -1161,6 +1161,7 @@ function retry(name, operation, customErrorMessages, maxAttempts) {
                 if ((0, utils_1.isSuccessStatusCode)(statusCode)) {
                     return response;
                 }
+                yield response.readBody();
                 // Extra error information that we want to display if a particular response code is hit
                 if (statusCode) {
                     customErrorInformation = customErrorMessages.get(statusCode);
@@ -1203,7 +1204,7 @@ exports.retryHttpClientRequest = retryHttpClientRequest;
 
 /***/ }),
 
-/***/ 9081:
+/***/ 547:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1262,7 +1263,7 @@ exports.StatusReporter = StatusReporter;
 
 /***/ }),
 
-/***/ 606:
+/***/ 2456:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1416,7 +1417,7 @@ exports.createGZipFileInBuffer = createGZipFileInBuffer;
 
 /***/ }),
 
-/***/ 4354:
+/***/ 6242:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1459,16 +1460,16 @@ const fs = __importStar(__nccwpck_require__(7147));
 const core = __importStar(__nccwpck_require__(2186));
 const tmp = __importStar(__nccwpck_require__(8065));
 const stream = __importStar(__nccwpck_require__(2781));
-const utils_1 = __nccwpck_require__(6327);
-const config_variables_1 = __nccwpck_require__(2222);
+const utils_1 = __nccwpck_require__(5773);
+const config_variables_1 = __nccwpck_require__(1412);
 const util_1 = __nccwpck_require__(3837);
 const url_1 = __nccwpck_require__(7310);
 const perf_hooks_1 = __nccwpck_require__(4074);
-const status_reporter_1 = __nccwpck_require__(9081);
+const status_reporter_1 = __nccwpck_require__(547);
 const http_client_1 = __nccwpck_require__(6255);
-const http_manager_1 = __nccwpck_require__(6527);
-const upload_gzip_1 = __nccwpck_require__(606);
-const requestUtils_1 = __nccwpck_require__(755);
+const http_manager_1 = __nccwpck_require__(7650);
+const upload_gzip_1 = __nccwpck_require__(2456);
+const requestUtils_1 = __nccwpck_require__(981);
 const stat = (0, util_1.promisify)(fs.stat);
 class UploadHttpClient {
     constructor() {
@@ -1838,7 +1839,7 @@ exports.UploadHttpClient = UploadHttpClient;
 
 /***/ }),
 
-/***/ 183:
+/***/ 5121:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1871,7 +1872,7 @@ exports.getUploadSpecification = void 0;
 const fs = __importStar(__nccwpck_require__(7147));
 const core_1 = __nccwpck_require__(2186);
 const path_1 = __nccwpck_require__(1017);
-const path_and_artifact_name_validation_1 = __nccwpck_require__(7398);
+const path_and_artifact_name_validation_1 = __nccwpck_require__(4508);
 /**
  * Creates a specification that describes how each file that is part of the artifact will be uploaded
  * @param artifactName the name of the artifact being uploaded. Used during upload to denote where the artifact is stored on the server
@@ -1950,7 +1951,7 @@ exports.getUploadSpecification = getUploadSpecification;
 
 /***/ }),
 
-/***/ 6327:
+/***/ 5773:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1974,8 +1975,8 @@ const fs_1 = __nccwpck_require__(7147);
 const core_1 = __nccwpck_require__(2186);
 const http_client_1 = __nccwpck_require__(6255);
 const auth_1 = __nccwpck_require__(5526);
-const config_variables_1 = __nccwpck_require__(2222);
-const crc64_1 = __importDefault(__nccwpck_require__(3549));
+const config_variables_1 = __nccwpck_require__(1412);
+const crc64_1 = __importDefault(__nccwpck_require__(8304));
 /**
  * Returns a retry time in milliseconds that exponentially gets larger
  * depending on the amount of retries that have been attempted
@@ -11083,7 +11084,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
-const artifact_1 = __nccwpck_require__(2605);
+const artifact_1 = __nccwpck_require__(8359);
 const search_1 = __nccwpck_require__(3930);
 const input_helper_1 = __nccwpck_require__(6455);
 const constants_1 = __nccwpck_require__(9042);

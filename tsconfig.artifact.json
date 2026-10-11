@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./external/toolkit/packages/artifact/lib",
+    "rootDir": "./external/toolkit/packages/artifact/src",
+    "strict": true,
+    "noImplicitAny": false,
+    "useUnknownInCatchVariables": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "declaration": true,
+    "sourceMap": true,
+    "lib": ["es6"]
+  },
+  "include": ["./external/toolkit/packages/artifact/src"]
+}

@@ -1,0 +1,3 @@
+[submodule "external/toolkit"]
+	path = external/toolkit
+	url = git@git.bloudraad.io:external/toolkit.git
