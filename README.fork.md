@@ -26,9 +26,10 @@ All package versions from the action's original npm lock are retained.
 The build adds only `@types/tmp` 0.2.3, the artifact package's locked type
 dependency. The root lock is the sole install authority for the action build.
 
-Before publication, create `external/toolkit` and `external/upload-artifact`
-on Forgejo and their GitHub backups, push both reviewed patch branches,
-register the forks and Boomslang consumer, and check a fresh recursive clone.
+The private Forgejo repositories `external/toolkit` and
+`external/upload-artifact` are created. Internal publication requires both
+reviewed patch branches, fork and consumer registration, and a fresh recursive
+clone check. GitHub backup and public publication require a separate decision.
 The toolkit submodule URL requires Forgejo SSH read access for maintainers.
 Boomslang must pin the reviewed action commit only after both repositories
 are published. Concurrent upload qualification needs the Forgejo server repair.
