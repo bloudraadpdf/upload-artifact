@@ -4,6 +4,7 @@ Base: upstream `v3.2.1`, commit `ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5`.
 The `external/toolkit` submodule pins the artifact 1.1.2 source patch.
 The retry helper reads failed HTTP bodies. Successful bodies remain available
 to callers. Protocol, retry policy and HTTP client version remain unchanged.
+Truncated failed bodies enter the existing transport-error retry path.
 
 Install the pinned tools with `mise install`. Rebuild from a clean clone:
 

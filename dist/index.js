@@ -1143,6 +1143,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.retryHttpClientRequest = exports.retry = void 0;
+const stream_1 = __nccwpck_require__(2781);
 const utils_1 = __nccwpck_require__(5773);
 const core = __importStar(__nccwpck_require__(2186));
 const config_variables_1 = __nccwpck_require__(1412);
@@ -1161,7 +1162,19 @@ function retry(name, operation, customErrorMessages, maxAttempts) {
                 if ((0, utils_1.isSuccessStatusCode)(statusCode)) {
                     return response;
                 }
-                yield response.readBody();
+                const message = response.message;
+                yield new Promise((resolve, reject) => {
+                    const cleanup = (0, stream_1.finished)(message, error => {
+                        cleanup();
+                        if (error) {
+                            reject(error);
+                        }
+                        else {
+                            resolve();
+                        }
+                    });
+                    message.resume();
+                });
                 // Extra error information that we want to display if a particular response code is hit
                 if (statusCode) {
                     customErrorInformation = customErrorMessages.get(statusCode);

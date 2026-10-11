@@ -8,6 +8,12 @@ import {gunzipSync} from 'zlib'
 const cases = [
   {name: 'success', statuses: [200], exitCode: 0},
   {name: 'recovered', statuses: [500, 200], exitCode: 0},
+  {
+    name: 'truncated-recovered',
+    statuses: [500, 200],
+    exitCode: 0,
+    truncate: true
+  },
   {name: 'exhausted', statuses: [500, 500, 500, 500, 500], exitCode: 1},
   {name: 'non-retryable', statuses: [404], exitCode: 1}
 ]
@@ -57,7 +63,13 @@ test('the built action exits after upload success or failure without a socket wa
           } else if (request.method === 'PATCH') {
             expect(JSON.parse(body.toString())).toEqual({Size: contents.length})
             response.statusCode = scenario.statuses[attempts++]
-            response.end(JSON.stringify({message: 'loopback finalisation'}))
+            if ('truncate' in scenario && scenario.truncate && attempts === 1) {
+              response.setHeader('Content-Length', '1024')
+              response.write('partial')
+              setTimeout(() => response.destroy(), 10)
+            } else {
+              response.end(JSON.stringify({message: 'loopback finalisation'}))
+            }
           } else {
             response.statusCode = 400
             response.end('{}')
